@@ -17,7 +17,9 @@ import {
 } from "@mui/material";
 
 import { styled } from "@mui/system";
-import EditIcon from "@mui/icons-material/Edit";
+import { ReactComponent as Info } from "../assets/info.svg";
+import { ReactComponent as Mail } from "../assets/mail.svg";
+import { ReactComponent as Pen } from "../assets/pen.svg";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import NavBar from "./NavBar";
@@ -175,7 +177,7 @@ const SignupForm = () => {
         Sign up
       </Typography>
       <Container>
-        <Container sx={{ width: "60%" }}>
+        <Container sx={{ width: "58%" }}>
           <form onSubmit={handleSubmit}>
             <Container
               sx={{
@@ -183,21 +185,27 @@ const SignupForm = () => {
                 borderRadius: "4px",
               }}
             >
-              <Typography
-                varient="h4"
-                component="h1"
-                gutterBottom
-                sx={{
-                  fontSize: "1.5rem",
-                  lineHeight: 1.19,
-                  color: "#2B3649",
-                  textAlign: "left",
-                  borderBottom: "1px solid #bbb",
-                  padding: "1rem 0",
-                }}
+              <Box
+                display="flex"
+                alignItems="center"
+                borderBottom="1px solid #bbb"
               >
-                Your Information
-              </Typography>
+                <Info height="34" width="34" />
+                <Typography
+                  varient="h4"
+                  component="h1"
+                  gutterBottom
+                  sx={{
+                    fontSize: "1.5rem",
+                    lineHeight: 1.19,
+                    color: "#2B3649",
+                    textAlign: "left",
+                    padding: "1rem 0",
+                  }}
+                >
+                  Your Information
+                </Typography>
+              </Box>
 
               <TextField
                 label="Full Name"
@@ -213,10 +221,10 @@ const SignupForm = () => {
                   width: "100%",
                   backgroundColor: "transparent",
                 }}
-                inputProps={{
+                InputProps={{
                   endAdornment: (
                     <InputAdornment position="start">
-                      <EditIcon fontSize="medium" />
+                      <Pen height="30" width="30" />
                     </InputAdornment>
                   ),
                 }}
@@ -232,6 +240,13 @@ const SignupForm = () => {
                 error={error}
                 helperText={helperText}
                 sx={{ margin: "0px" }}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="start">
+                      <Pen height="30" width="30" />
+                    </InputAdornment>
+                  ),
+                }}
               />
               <Box
                 sx={{
@@ -250,6 +265,13 @@ const SignupForm = () => {
                   error={error}
                   helperText={helperText}
                   sx={{ margin: "0px", borderRight: "1px solid #bbb" }}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="start">
+                        <Pen height="30" width="30" />
+                      </InputAdornment>
+                    ),
+                  }}
                 />
                 <TextField
                   label="State"
@@ -261,6 +283,13 @@ const SignupForm = () => {
                   error={error}
                   helperText={helperText}
                   sx={{ margin: "0px" }}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="start">
+                        <Pen height="30" width="30" />
+                      </InputAdornment>
+                    ),
+                  }}
                 />
               </Box>
               <TextField
@@ -273,6 +302,13 @@ const SignupForm = () => {
                 error={error}
                 helperText={helperText}
                 sx={{ marginTop: "10px" }}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="start">
+                      <Pen height="30" width="30" />
+                    </InputAdornment>
+                  ),
+                }}
               />
               <TextField
                 label="Date of Birth"
@@ -284,6 +320,13 @@ const SignupForm = () => {
                 error={error}
                 helperText={helperText}
                 sx={{ marginTop: "10px" }}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="start">
+                      <Pen height="30" width="30" />
+                    </InputAdornment>
+                  ),
+                }}
               />
 
               <FormControl
@@ -329,6 +372,7 @@ const SignupForm = () => {
                 fontSize: "1.2rem",
               }}
             >
+              <Mail height="34" width="34" alignItems="center" />
               Continue with email
             </EmailButton>
           </form>
