@@ -14,13 +14,15 @@ import {
   Typography,
   Collapse,
   InputAdornment,
+  useMediaQuery,
 } from "@mui/material";
 
 import { styled } from "@mui/system";
 import EditIcon from "@mui/icons-material/Edit";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
-import HowToDrawer from "./HowToDrawer";
+import NavBar from "./NavBar";
+import { useTheme } from "@mui/material/styles";
 
 const EmailButton = styled(Button)({
   backgroundColor: "#2B3669",
@@ -28,6 +30,8 @@ const EmailButton = styled(Button)({
 });
 
 const SignupForm = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: "",
@@ -140,18 +144,7 @@ const SignupForm = () => {
 
   return (
     <Container>
-      <Container
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "15px",
-        }}
-      >
-        <img src={logo} alt="logo" />
-        <HowToDrawer />
-      </Container>
+      {!isMobile && <NavBar />}
       <Typography
         varient="h4"
         component="h1"
@@ -208,7 +201,7 @@ const SignupForm = () => {
                   backgroundColor: "transparent",
                 }}
                 // inputProps={{
-                //   startAdornment: (
+                //   endAdornment: (
                 //     <InputAdornment position="start">
                 //       <EditIcon />
                 //     </InputAdornment>
