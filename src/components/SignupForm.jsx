@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../logo.svg";
 
 import {
   TextField,
@@ -33,14 +32,15 @@ const SignupForm = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const navigate = useNavigate();
+  const [gender, setGender] = useState("");
   const [formData, setFormData] = useState({
     fullName: "",
     streetAddress: "",
     city: "",
     state: "",
     mobileNumber: "",
+    email: "",
     dateOfBirth: null,
-    gender: "",
   });
 
   const [expanded, setExpanded] = useState(false);
@@ -58,6 +58,9 @@ const SignupForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleGenderChange = (e) => {
+    setGender(e.target.value);
+  };
   const validate = () => {
     if (!formData.fullName) {
       setError(true);
@@ -136,7 +139,17 @@ const SignupForm = () => {
 
     const tempErrors = validate();
     if (Object.keys(tempErrors).length === 0) {
-      console.log(formData);
+      console.log({ ...formData, gender });
+      setFormData({
+        fullName: "",
+        streetAddress: "",
+        city: "",
+        state: "",
+        mobileNumber: "",
+        email: "",
+        dateOfBirth: "",
+      });
+      setGender("");
     } else {
       setError(tempErrors);
     }
@@ -200,13 +213,13 @@ const SignupForm = () => {
                   width: "100%",
                   backgroundColor: "transparent",
                 }}
-                // inputProps={{
-                //   endAdornment: (
-                //     <InputAdornment position="start">
-                //       <EditIcon />
-                //     </InputAdornment>
-                //   ),
-                // }}
+                inputProps={{
+                  endAdornment: (
+                    <InputAdornment position="start">
+                      <EditIcon fontSize="medium" />
+                    </InputAdornment>
+                  ),
+                }}
               />
 
               <TextField
@@ -283,8 +296,8 @@ const SignupForm = () => {
                   variant="standard"
                   id="gender"
                   label="gender"
-                  onChange={handleChange}
-                  value={formData.gender}
+                  onChange={handleGenderChange}
+                  value={gender}
                   error={error}
                   helperText={helperText}
                 >
