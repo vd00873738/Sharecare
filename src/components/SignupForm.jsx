@@ -177,94 +177,51 @@ const SignupForm = () => {
         Sign up
       </Typography>
       <Container>
-        <Container sx={{ width: "58%" }}>
+        <Container sx={{ width: "60%" }}>
           <form onSubmit={handleSubmit}>
-            <Container
-              sx={{
-                boxShadow: "0 0 10px rgba(0,0,0,0.5)",
-                borderRadius: "4px",
-              }}
-            >
+            <Container>
               <Box
-                display="flex"
-                alignItems="center"
-                borderBottom="1px solid #bbb"
+                sx={{
+                  boxShadow: "0 0 10px rgba(0,0,0,0.5)",
+                  borderRadius: "4px",
+                }}
               >
-                <Info height="34" width="34" />
-                <Typography
-                  varient="h4"
-                  component="h1"
-                  gutterBottom
-                  sx={{
-                    fontSize: "1.5rem",
-                    lineHeight: 1.19,
-                    color: "#2B3649",
-                    textAlign: "left",
-                    padding: "1rem 0",
-                  }}
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  borderBottom="1px solid #bbb"
                 >
-                  Your Information
-                </Typography>
-              </Box>
+                  <Info height="34" width="34" />
+                  <Typography
+                    varient="h4"
+                    component="h1"
+                    gutterBottom
+                    sx={{
+                      fontSize: "1.5rem",
+                      lineHeight: 1.19,
+                      color: "#2B3649",
+                      textAlign: "left",
+                      padding: "1rem 0",
+                    }}
+                  >
+                    Your Information
+                  </Typography>
+                </Box>
 
-              <TextField
-                label="Full Name"
-                variant="standard"
-                name="fullName"
-                fullWidth
-                value={formData.fullName}
-                onChange={handleChange}
-                error={error}
-                helperText={helperText}
-                sx={{
-                  margin: "0px",
-                  width: "100%",
-                  backgroundColor: "transparent",
-                }}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="start">
-                      <Pen height="30" width="30" />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-
-              <TextField
-                label="Street Address (e.g '1 elm way')"
-                variant="standard"
-                name="streetAddress"
-                value={formData.streetAddress}
-                onChange={handleChange}
-                fullWidth
-                error={error}
-                helperText={helperText}
-                sx={{ margin: "0px" }}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="start">
-                      <Pen height="30" width="30" />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                }}
-              >
                 <TextField
-                  label="City"
+                  label="Full Name"
                   variant="standard"
-                  name="city"
-                  value={formData.city}
+                  name="fullName"
+                  fullWidth
+                  value={formData.fullName}
                   onChange={handleChange}
-                  halfWidth
                   error={error}
                   helperText={helperText}
-                  sx={{ margin: "0px", borderRight: "1px solid #bbb" }}
+                  sx={{
+                    margin: "0px",
+                    width: "100%",
+                    backgroundColor: "transparent",
+                  }}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="start">
@@ -273,13 +230,14 @@ const SignupForm = () => {
                     ),
                   }}
                 />
+
                 <TextField
-                  label="State"
+                  label="Street Address (e.g '1 elm way')"
                   variant="standard"
-                  name="state"
-                  value={formData.state}
+                  name="streetAddress"
+                  value={formData.streetAddress}
                   onChange={handleChange}
-                  halfWidth
+                  fullWidth
                   error={error}
                   helperText={helperText}
                   sx={{ margin: "0px" }}
@@ -291,92 +249,137 @@ const SignupForm = () => {
                     ),
                   }}
                 />
-              </Box>
-              <TextField
-                label="Mobile Number"
-                variant="standard"
-                name="mobileNumber"
-                value={formData.mobileNumber}
-                onChange={handleChange}
-                fullWidth
-                error={error}
-                helperText={helperText}
-                sx={{ marginTop: "10px" }}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="start">
-                      <Pen height="30" width="30" />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              <TextField
-                label="Date of Birth"
-                variant="standard"
-                name="dateOfBirth"
-                value={formData.dateOfBirth}
-                onChange={handleChange}
-                fullWidth
-                error={error}
-                helperText={helperText}
-                sx={{ marginTop: "10px" }}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="start">
-                      <Pen height="30" width="30" />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-
-              <FormControl
-                fullWidth
-                sx={{ marginBottom: "10px", marginTop: "20px" }}
-              >
-                <InputLabel id="select-gender">Gender</InputLabel>
-                <Select
-                  labelId="select-gender"
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <TextField
+                    label="City"
+                    variant="standard"
+                    name="city"
+                    value={formData.city}
+                    onChange={handleChange}
+                    halfWidth
+                    error={error}
+                    helperText={helperText}
+                    sx={{ margin: "0px", borderRight: "1px solid #bbb" }}
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="start">
+                          <Pen height="30" width="30" />
+                        </InputAdornment>
+                      ),
+                    }}
+                  />
+                  <TextField
+                    label="State"
+                    variant="standard"
+                    name="state"
+                    value={formData.state}
+                    onChange={handleChange}
+                    halfWidth
+                    error={error}
+                    helperText={helperText}
+                    sx={{ margin: "0px" }}
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="start">
+                          <Pen height="30" width="30" />
+                        </InputAdornment>
+                      ),
+                    }}
+                  />
+                </Box>
+                <TextField
+                  label="Mobile Number"
                   variant="standard"
-                  id="gender"
-                  label="gender"
-                  onChange={handleGenderChange}
-                  value={gender}
+                  name="mobileNumber"
+                  value={formData.mobileNumber}
+                  onChange={handleChange}
+                  fullWidth
                   error={error}
                   helperText={helperText}
-                >
-                  <MenuItem value="Male">Male</MenuItem>
-                  <MenuItem value="Female">Female</MenuItem>
-                  <MenuItem value="Other">Other</MenuItem>
-                </Select>
-              </FormControl>
+                  sx={{ marginTop: "10px" }}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="start">
+                        <Pen height="30" width="30" />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                <TextField
+                  label="Date of Birth"
+                  variant="standard"
+                  name="dateOfBirth"
+                  value={formData.dateOfBirth}
+                  onChange={handleChange}
+                  fullWidth
+                  error={error}
+                  helperText={helperText}
+                  sx={{ marginTop: "10px" }}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="start">
+                        <Pen height="30" width="30" />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+
+                <FormControl fullWidth sx={{}}>
+                  <InputLabel id="select-gender">Gender</InputLabel>
+                  <Select
+                    labelId="select-gender"
+                    variant="standard"
+                    id="gender"
+                    label="gender"
+                    onChange={handleGenderChange}
+                    value={gender}
+                    error={error}
+                    helperText={helperText}
+                  >
+                    <MenuItem value="Male">Male</MenuItem>
+                    <MenuItem value="Female">Female</MenuItem>
+                    <MenuItem value="Other">Other</MenuItem>
+                  </Select>
+                </FormControl>
+              </Box>
             </Container>
-            <TextField
-              label="Email"
-              variant="outlined"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              fullWidth
-              margin="normal"
-              error={error}
-              helperText={helperText}
-              sx={{ marginTop: "2rem" }}
-            />
-            <EmailButton
-              type="submit"
-              variant="contained"
-              fullWidth
-              sx={{
-                marginTop: "2rem",
-                textTransform: "none",
-                fontSize: "1.2rem",
-              }}
-            >
-              <Mail height="34" width="34" alignItems="center" />
-              Continue with email
-            </EmailButton>
+            <Container>
+              <TextField
+                label="Email"
+                variant="outlined"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                fullWidth
+                margin="normal"
+                error={error}
+                helperText={helperText}
+                sx={{ marginTop: "2rem" }}
+              />
+            </Container>
+            <Container>
+              <EmailButton
+                type="submit"
+                variant="contained"
+                fullWidth
+                sx={{
+                  marginTop: "2rem",
+                  textTransform: "none",
+                  fontSize: "1.2rem",
+                }}
+              >
+                <Mail height="34" width="34" alignItems="center" />
+                Continue with email
+              </EmailButton>
+            </Container>
           </form>
-          <Box
+          <Container
             sx={{
               display: "flex",
               flexDirection: "row",
@@ -389,10 +392,12 @@ const SignupForm = () => {
               component="h1"
               gutterBottom
               sx={{
-                fontSize: "1rem",
+                fontSize: "0.9rem",
                 lineHeight: 1.19,
                 color: "#2B3649",
                 textAlign: "center",
+                alignItems: "center",
+                justifyContent: "center",
                 marginTop: "2rem",
                 textDecoration: "none",
               }}
@@ -401,7 +406,7 @@ const SignupForm = () => {
               <span style={{ color: "#00BFA5" }}>
                 {" "}
                 <span onClick={termsHandler} style={{ cursor: "pointer" }}>
-                  Offer Terms{" "}
+                  Offer Terms
                 </span>
                 <Button
                   variant="standard"
@@ -431,7 +436,7 @@ const SignupForm = () => {
                 </Collapse>
               </span>
             </Typography>
-          </Box>
+          </Container>
         </Container>
       </Container>
     </Container>
