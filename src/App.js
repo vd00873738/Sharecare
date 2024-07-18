@@ -1,7 +1,9 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import SignupPage from "./pages/SignupPage";
 import OfferTerms from "./pages/OfferTerms";
+
 function App() {
   return (
     <BrowserRouter>

@@ -22,8 +22,8 @@ import { ReactComponent as Mail } from "../assets/mail.svg";
 import { ReactComponent as Pen } from "../assets/pen.svg";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
+import theme from "./Theme";
 import NavBar from "./NavBar";
-import { useTheme } from "@mui/material/styles";
 
 const EmailButton = styled(Button)({
   backgroundColor: "#2B3669",
@@ -31,8 +31,7 @@ const EmailButton = styled(Button)({
 });
 
 const SignupForm = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("custom"));
   const navigate = useNavigate();
   const [gender, setGender] = useState("");
   const [formData, setFormData] = useState({
